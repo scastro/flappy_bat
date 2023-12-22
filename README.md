@@ -6,6 +6,8 @@ It's just an intro project into Godot, so feel free to use it as you like.
 
 ![](assets/sample.gif)
 
+*** [PLAY HERE](https://suricatagames.com/flappybat/) ***
+
 ## Assets
 
 The assets used in this code are public and free to use. To support the creators of those assets, instead of adding them directly, I will provide the links and instructions on how to use them in this project.
