@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://csijxw7w71ho7"]
+
+[ext_resource type="Script" path="res://main/main.gd" id="1_ftpb4"]
+[ext_resource type="Texture2D" uid="uid://cnx6ipxr58nc" path="res://assets/FlappyBat/Sprites/Game Objects/Background.png" id="1_qjipm"]
+[ext_resource type="Texture2D" uid="uid://drv0gp2n4qnb2" path="res://assets/FlappyBat/Sprites/Game Objects/Foreground.png" id="3_pagsm"]
+[ext_resource type="LabelSettings" uid="uid://u13aolukr2p8" path="res://assets/lbl_120_settings.tres" id="4_t33on"]
+[ext_resource type="LabelSettings" uid="uid://bxqg2nsocfjar" path="res://assets/lbl_64_red_settings.tres" id="5_0ym5x"]
+[ext_resource type="LabelSettings" uid="uid://byvjs8poimjys" path="res://assets/lbl_48_settings.tres" id="6_n8lkk"]
+[ext_resource type="AudioStream" uid="uid://cn3l0e3eyvl5r" path="res://assets/FlappyBat/Audio/Music/Background Music.mp3" id="7_xtk7k"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ftpb4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qjipm")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pagsm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="lbl_title" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Flappy Bat
+"
+label_settings = ExtResource("4_t33on")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lbl_press_to_play" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press space to play"
+label_settings = ExtResource("5_0ym5x")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="lbl_hs" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Highscore
+"
+label_settings = ExtResource("6_n8lkk")
+
+[node name="lbl_hs_value" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "999"
+label_settings = ExtResource("6_n8lkk")
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xtk7k")
+volume_db = -31.857
+autoplay = true

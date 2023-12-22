@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://drk0pj4m7jo6i"]
+
+[ext_resource type="Texture2D" uid="uid://corgimdwaw7qf" path="res://assets/FlappyBat/Sprites/Game Objects/Obstacle_Down.png" id="1_i4xyu"]
+[ext_resource type="Script" path="res://obstacles/obstacle.gd" id="1_wfnd5"]
+
+[node name="Obstacle Down" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_wfnd5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i4xyu")
+centered = false
+offset = Vector2(-160, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-15, 164.5)
+scale = Vector2(5.4, 15.55)
+polygon = PackedVector2Array(3.88889, -10, 0.555556, 0.932477, -2.40741, 0.482316, -5.74074, 2.02572, -9.81481, 10, 9.81481, 9.93569)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(90, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

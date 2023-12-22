@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cn3l0e3eyvl5r"
+path="res://.godot/imported/Background Music.mp3-5e832b04164cca6b679ec66b873728aa.mp3str"
+
+[deps]
+
+source_file="res://assets/FlappyBat/Audio/Music/Background Music.mp3"
+dest_files=["res://.godot/imported/Background Music.mp3-5e832b04164cca6b679ec66b873728aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://du0dic8ldn4y7"]
+
+[ext_resource type="Script" path="res://obstacles/obstacle.gd" id="1_h4h4f"]
+[ext_resource type="Texture2D" uid="uid://bwtsfltwpdwv7" path="res://assets/FlappyBat/Sprites/Game Objects/Ostacolo_Up.png" id="1_hj8bl"]
+
+[node name="Obstacle Up" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_h4h4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hj8bl")
+centered = false
+offset = Vector2(-160, -320)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-19, -159)
+scale = Vector2(6.4, 16.9)
+polygon = PackedVector2Array(3.90625, 8.7574, 1.09375, -1.30177, -1.25, -0.887574, -4.53125, -2.18935, -7.8125, -9.64497, 9.0625, -9.64497)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(90, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

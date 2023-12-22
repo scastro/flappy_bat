@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://qw7dqo7wtoun"]
+
+[ext_resource type="Script" path="res://game/game.gd" id="1_du6k0"]
+[ext_resource type="PackedScene" uid="uid://dhga6vi0huh2h" path="res://bat/bat.tscn" id="3_mns08"]
+[ext_resource type="PackedScene" uid="uid://du0dic8ldn4y7" path="res://obstacles/obstacleUp.tscn" id="4_1p6el"]
+[ext_resource type="PackedScene" uid="uid://qyfwwwfm61tm" path="res://scrolling_background/scrolling_background.tscn" id="4_swqge"]
+[ext_resource type="Texture2D" uid="uid://cfymahbh1kvf8" path="res://assets/FlappyBat/Sprites/Game Objects/Terrain.png" id="5_4k4mt"]
+[ext_resource type="PackedScene" uid="uid://drk0pj4m7jo6i" path="res://obstacles/obstacleDown.tscn" id="5_wgt2g"]
+[ext_resource type="PackedScene" uid="uid://crm804u531q86" path="res://game_over/game_over.tscn" id="6_r3n8s"]
+[ext_resource type="PackedScene" uid="uid://8e682ytq1w5u" path="res://hud/hud.tscn" id="7_nj368"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4c3u"]
+size = Vector2(987, 22)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_du6k0")
+obstacles = Array[PackedScene]([ExtResource("4_1p6el"), ExtResource("5_wgt2g")])
+
+[node name="ScrollingBackground" parent="." instance=ExtResource("4_swqge")]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 503)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(392, -20)
+shape = SubResource("RectangleShape2D_i4c3u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(135, -170)
+texture = ExtResource("5_4k4mt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Ground"]
+position = Vector2(405, -170)
+texture = ExtResource("5_4k4mt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Ground"]
+position = Vector2(675, -170)
+texture = ExtResource("5_4k4mt")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Ground"]
+position = Vector2(945, -170)
+texture = ExtResource("5_4k4mt")
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2(855, -24)
+rotation = 3.14159
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(392, -20)
+shape = SubResource("RectangleShape2D_i4c3u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ceiling"]
+position = Vector2(135, -170)
+texture = ExtResource("5_4k4mt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Ceiling"]
+position = Vector2(405, -170)
+texture = ExtResource("5_4k4mt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Ceiling"]
+position = Vector2(675, -170)
+texture = ExtResource("5_4k4mt")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Ceiling"]
+position = Vector2(945, -170)
+texture = ExtResource("5_4k4mt")
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Bat" parent="." instance=ExtResource("3_mns08")]
+top_level = true
+position = Vector2(254, 137)
+scale = Vector2(3.79259, 2.72917)
+
+[node name="UpMarker" type="Marker2D" parent="."]
+position = Vector2(940, 180)
+
+[node name="LowMarker" type="Marker2D" parent="."]
+position = Vector2(940, 280)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("6_r3n8s")]
+visible = false
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("7_nj368")]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

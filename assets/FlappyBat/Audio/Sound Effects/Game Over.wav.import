@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bylbf0agbmth8"
+path="res://.godot/imported/Game Over.wav-593c9d2bd0110d1b2f4b9af8e523240f.sample"
+
+[deps]
+
+source_file="res://assets/FlappyBat/Audio/Sound Effects/Game Over.wav"
+dest_files=["res://.godot/imported/Game Over.wav-593c9d2bd0110d1b2f4b9af8e523240f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

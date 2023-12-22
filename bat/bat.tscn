@@ -1,0 +1,127 @@
+[gd_scene load_steps=19 format=3 uid="uid://dhga6vi0huh2h"]
+
+[ext_resource type="Texture2D" uid="uid://30m8xhtsoyg5" path="res://assets/FlappyBat/Animations/Spritesheets/Fly.png" id="1_5kq27"]
+[ext_resource type="Script" path="res://bat/bat.gd" id="1_6j0rf"]
+[ext_resource type="Texture2D" uid="uid://dcjywuucp1pu0" path="res://assets/FlappyBat/Animations/Spritesheets/Death.png" id="2_cfk51"]
+[ext_resource type="AudioStream" uid="uid://dmmxgsh7g28ju" path="res://assets/FlappyBat/Audio/Sound Effects/Fly.wav" id="4_1by0b"]
+[ext_resource type="AudioStream" uid="uid://v6otkfk17haj" path="res://assets/FlappyBat/Audio/Sound Effects/Death.wav" id="5_gl4bb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl8oj"]
+atlas = ExtResource("2_cfk51")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ep7o"]
+atlas = ExtResource("2_cfk51")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvme6"]
+atlas = ExtResource("2_cfk51")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kis04"]
+atlas = ExtResource("2_cfk51")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8pge"]
+atlas = ExtResource("2_cfk51")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um83k"]
+atlas = ExtResource("2_cfk51")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klj2f"]
+atlas = ExtResource("2_cfk51")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjbna"]
+atlas = ExtResource("1_5kq27")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8q1"]
+atlas = ExtResource("1_5kq27")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rccxi"]
+atlas = ExtResource("1_5kq27")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1drn"]
+atlas = ExtResource("1_5kq27")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbhux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl8oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ep7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvme6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kis04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8pge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um83k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klj2f")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjbna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw8q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rccxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1drn")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_616xa"]
+radius = 5.0
+
+[node name="Bat" type="CharacterBody2D" groups=["player"]]
+collision_mask = 4
+script = ExtResource("1_6j0rf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_pbhux")
+animation = &"death"
+autoplay = "fly"
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_616xa")
+
+[node name="FlySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1by0b")
+volume_db = -30.919
+autoplay = true
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gl4bb")
+volume_db = -14.198
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

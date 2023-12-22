@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://qyfwwwfm61tm"]
+
+[ext_resource type="Script" path="res://scrolling_background/scrolling_background.gd" id="1_iyc0p"]
+[ext_resource type="PackedScene" uid="uid://dbw0icwxmtnmo" path="res://scrolling_layer/scrolling_layer.tscn" id="2_na53y"]
+[ext_resource type="Texture2D" uid="uid://cnx6ipxr58nc" path="res://assets/FlappyBat/Sprites/Game Objects/Background.png" id="3_3ri54"]
+[ext_resource type="Texture2D" uid="uid://drv0gp2n4qnb2" path="res://assets/FlappyBat/Sprites/Game Objects/Foreground.png" id="4_djnv0"]
+
+[node name="ScrollingBackground" type="ParallaxBackground"]
+script = ExtResource("1_iyc0p")
+
+[node name="ScrollingLayer" parent="." instance=ExtResource("2_na53y")]
+texture = ExtResource("3_3ri54")
+scroll_scale = 0.5
+
+[node name="ScrollingLayer2" parent="." instance=ExtResource("2_na53y")]
+visible = false
+texture = ExtResource("4_djnv0")
+scroll_scale = 0.8
