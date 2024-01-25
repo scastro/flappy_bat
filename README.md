@@ -8,6 +8,13 @@ It's just an intro project into Godot, so feel free to use it as you like.
 
 *** [PLAY HERE](https://suricatagames.com/flappybat/) ***
 
+## Future Changes
+
+* Add About button on main screen
+* Add About screen
+* Add Sound button on game screen
+* Add Sound Manager
+
 ## Assets
 
 The assets used in this code are public and free to use. To support the creators of those assets, instead of adding them directly, I will provide the links and instructions on how to use them in this project.
