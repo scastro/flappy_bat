@@ -10,8 +10,6 @@ It's just an intro project into Godot, so feel free to use it as you like.
 
 ## Future Changes
 
-* Add About button on main screen
-* Add About screen
 * Add Sound button on game screen
 * Add Sound Manager
 

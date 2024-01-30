@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://bixflpb2laqyt"]
+
+[ext_resource type="Texture2D" uid="uid://cv6o3chpb5j3u" path="res://assets/FlappyBat/Sprites/UI Elements/Box.png" id="1_8gw6l"]
+[ext_resource type="LabelSettings" uid="uid://byvjs8poimjys" path="res://assets/lbl_48_settings.tres" id="2_s6570"]
+[ext_resource type="FontFile" uid="uid://c4bt81aq7tmml" path="res://assets/Silver.ttf" id="3_d64bb"]
+
+[node name="About" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_8gw6l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "About"
+label_settings = ExtResource("2_s6570")
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_d64bb")
+theme_override_font_sizes/font_size = 24
+text = "Code: Sebastian Castro"
+
+[node name="LinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_d64bb")
+theme_override_font_sizes/font_size = 24
+text = "Asset Pack: DemonStick Games"
+uri = "https://demonstick-games.itch.io/pixel-art-2d-flappy-bird-like"
+
+[node name="LinkButton2" type="LinkButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_d64bb")
+theme_override_font_sizes/font_size = 24
+text = "Font: Silver"
+uri = "https://poppyworks.itch.io/silver"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

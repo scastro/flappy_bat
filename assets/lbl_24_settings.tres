@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://8a8nmr0ytuxi"]
+
+[ext_resource type="FontFile" uid="uid://c4bt81aq7tmml" path="res://assets/Silver.ttf" id="1_g7uhp"]
+
+[resource]
+font = ExtResource("1_g7uhp")
+font_size = 24
+outline_size = 1
+shadow_size = 0
+shadow_color = Color(0.611765, 0.054902, 0.203922, 1)
