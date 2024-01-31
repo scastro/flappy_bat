@@ -7,16 +7,13 @@ extends Node2D
 
 @export var obstacles : Array[PackedScene]
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	GameManager.on_game_over.connect(on_game_over)
 	spawnObstacle()
 	GameManager.game_start()
 
-
 func _on_spawn_timer_timeout():
 	spawnObstacle()
-	
 
 func spawnObstacle():
 	var new_obstacle = obstacles.pick_random().instantiate()

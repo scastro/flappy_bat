@@ -11,8 +11,7 @@ func on_game_over():
 	show()
 	timer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if lbl_press_space.visible && Input.is_action_just_pressed("Fly"):
 		GameManager.load_main_scene()
 

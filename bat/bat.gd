@@ -9,11 +9,6 @@ const POWER: float = -400.0
 
 var is_alive = true
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	
 	velocity.y += GRAVITY * delta
@@ -28,7 +23,6 @@ func _physics_process(delta):
 func processInput():
 	if is_alive && Input.is_action_just_pressed("Fly"):
 		velocity.y = POWER
-		
 
 func die():
 	if is_alive:
@@ -37,7 +31,6 @@ func die():
 		fly_sound.stop()
 		death_sound.play()
 	is_alive = false
-	
 
 func _on_animated_sprite_2d_animation_finished():
 	GameManager.on_game_over.emit()

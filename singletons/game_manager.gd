@@ -9,7 +9,6 @@ var game_scene : PackedScene = preload("res://game/game.tscn")
 var main_scene : PackedScene = preload("res://main/main.tscn")
 
 var score_timer = Timer.new() #by default the timer is set to 1 second
-
 var score: int = 0: set = set_score
 var highScore: int = 0
 
@@ -29,7 +28,6 @@ func set_score(value):
 	if score > highScore:
 		highScore = score
 	on_score_updated.emit()
-	print("sc: %s, hs:%s" % [score, highScore])
 
 func game_start():
 	score = 0
